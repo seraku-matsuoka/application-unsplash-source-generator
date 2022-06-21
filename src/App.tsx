@@ -9,6 +9,17 @@ function App() {
         setUrl(changedUrl);
     };
 
+    const copyText = (text: string) => {
+        navigator.clipboard.writeText(text).then(
+            function () {
+                console.log('Async: Copying to clipboard was successful!');
+            },
+            function (err) {
+                console.error('Async: Could not copy text: ', err);
+            }
+        );
+    };
+
     return (
         <div className="App">
             <header className="l-header">
@@ -23,7 +34,8 @@ function App() {
                     <div className="p-input__text-box">
                         <input onChange={handleUrl} />
                     </div>
-                    <p className="p-input__changed-url">{url}</p>
+                    {url === '' ? <p className="p-input__changed-url">入力してください</p> : <p className="p-input__changed-url">{url}</p>}
+                    <button onClick={() => copyText(url)}>Copy</button>
                 </section>
             </main>
             <footer className="l-footer">Created by Vite React-ts</footer>
