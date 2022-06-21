@@ -50,6 +50,10 @@
         }
     }
     &__changed-url {
-        font-size: 2em;
+        display: inline-block;
+        margin-right: 1em;
+        padding: 0.2em 1em;
+        font-size: 1.2em;
+        background-color: lightgray;
     }
 }
